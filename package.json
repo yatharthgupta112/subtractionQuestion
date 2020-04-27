@@ -1,0 +1,22 @@
+{
+  "name": "questionmaker",
+  "version": "1.0.0",
+  "description": "Backend for create subtraction questions",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "./node_modules/.bin/mocha ./test/test.js"
+  },
+  "author": "Yatharth Gupta",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "expect": "^25.4.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.3"
+  }
+}
