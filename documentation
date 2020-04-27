@@ -1,0 +1,9 @@
+postman sample request - https://documenter.getpostman.com/view/6276402/SzfCV6Xe?version=latest
+
+For setting up sever :
+ npm i 
+ npm start
+
+ For running test cases :
+ npm i
+ npm test 
