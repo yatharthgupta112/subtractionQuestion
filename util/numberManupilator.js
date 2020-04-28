@@ -75,7 +75,7 @@ module.exports.generateOption = function(answer)
     let answerLength = answer.toString().length;
     option.push(answer)
     option.push(randomNumber(answer+1, answer +5))
-    option.push(randomNumber(answer-1, answer -10))
+    option.push(Math.abs(randomNumber(answer-1, answer -10)))
     option.push(numGeneratorWithDigit(answerLength))
 
     return randomOption(option)
@@ -84,7 +84,7 @@ module.exports.generateOption = function(answer)
 
 
 // console.log(this)
-// console.log(this.generateOption(12))
+console.log(this.generateOption(12))
 // console.log(this.borrowingNum("2651", 3))
 // console.log(this.minuendGenerator(4))
 // console.log(this.nonBorrowingnum("1234",4))

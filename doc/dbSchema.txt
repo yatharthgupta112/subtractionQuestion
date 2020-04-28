@@ -1,0 +1,13 @@
+Question
+    ques_id  (unique id for every question)
+    operator1 
+    operator2
+    answer
+    operation  - (it can have any value for mathematic operation like multily, divide, addition and subtraction )
+
+Option
+    opt_id ( unique if for every option)
+    ques_id - foreign key Question
+    option
+
+In this schema we can put any type of mathematical questions with x no of options and with operants.

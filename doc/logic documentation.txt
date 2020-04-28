@@ -1,0 +1,25 @@
+non Borrowing subtraction
+    - We generate minuend randomly with min and max based on no of digits
+        like if minuend= 4 then min = 1000 and max =9999
+    - Based on the random no i generate subtrahend in which every digit is smaller than corresponding digit in minuend to make them non borrowing. 
+   
+   
+borrowing subtraction
+    - We generate a random no which is less than the minuend and is of provided length.
+    - Than we check if it has borrowing or not.
+    - If it is not borrowing than we randomly randomise the random digits in the subtrahend with borrowing digits.
+    - We repeat previous step until we have borrowing subtrahend
+    - Also subtrahend cannot have 0 at first place
+   
+Option 
+    -  Generate options based on answer to keep some similarity
+            - One option is a random number with min = answer and max = answer +10
+            - Another option is a random number with mod value of the result and 
+                min = (answer -5) and max = answer
+            -  One option is answer
+            - One option is a random number of same no of digits as of the answer.
+
+Randomising the option
+    - I generate a random number suppose x.
+    - Now we swap two random option from the array for x times.
+    This gives us a array of options which is randomised
