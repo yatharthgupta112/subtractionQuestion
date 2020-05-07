@@ -11,8 +11,8 @@ describe(' Subtraction', () => {
             body :   {
                 noOfQuestions: 1000,
                 borrowing: false,
-                minuend: 6,
-                subtrahend: 1
+                minuend: 1,
+                subtrahend: 0
             }
         }
         const result =Questionaire(req);

@@ -7,7 +7,7 @@ function Questionaire(req){
     // let question = 15;
     // let borrowingFlag = false;
 
-    if( req.body.minuend<req.body.subtrahend)
+    if( req.body.minuend<req.body.subtrahend || req.body.minuend ==0 || req.body.subtrahend ==0 )
      throw({message : "invalid input"})
     let question = req.body.noOfQuestions;
     let borrowingFlag = req.body.borrowing;
