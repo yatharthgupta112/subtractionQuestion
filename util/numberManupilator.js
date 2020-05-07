@@ -5,6 +5,7 @@ module.exports.getString = function (number)
     return number.toString();
     // return num.split("")
 }
+
 module.exports.nonBorrowingnum = function (minuend,subtrahendLength){
 
     let number ="";
@@ -27,10 +28,12 @@ module.exports.nonBorrowingnum = function (minuend,subtrahendLength){
 module.exports.checkBorrowing = function (minuend, subtrahend)
 {
     // console.log("from check")
-    for (let i = subtrahend.length ; i>0;i--)
+    for (let i = subtrahend.length-1; i>=0;i--)
     {
-        if(parseInt(subtrahend.charAt(i))> parseInt(minuend.charAt(i)))
-        return true;
+        let relativeIndex = minuend.length - subtrahend.length + i
+        if(parseInt(subtrahend.charAt(i))> parseInt(minuend.charAt(relativeIndex)))
+        {
+            return true;}
     }
     return false;
 }
@@ -47,9 +50,9 @@ module.exports.borrowingNum = (minuend,subtrahendLength)=>{
         let temp = randomNumber(1, 10);
         while (temp >0)
         {
-            let index =randomNumber(1, subtrahendLength-1) ;
+            let index =randomNumber(0, subtrahendLength-1) ;
             let relativeIndex = minuend.length - subtrahendLength + index
-            if(index=== 0 && relativeIndex === index)
+            if(subtrahendLength >1 && index=== 0 && relativeIndex === index)
                 continue
             let replaceChar = randomNumber(parseInt(minuend.charAt(relativeIndex)), 9)
             subtrahendString =  this.replaceChar(subtrahendString,replaceChar.toString(),index);
@@ -81,10 +84,22 @@ module.exports.generateOption = function(answer)
     return randomOption(option)
 }
 
+module.exports.checkMinuend = function (minuend, subtrahendLength){
 
+    for (let i = subtrahendLength-1; i>=0;i--)
+    {
+        let relativeIndex = minuend.length - subtrahendLength + i
+        if(parseInt(minuend.charAt(relativeIndex)) < 9)
+        {
+            return true;
+        }
+    }
+    return false;
+
+}
 
 // console.log(this)
-console.log(this.generateOption(12))
-// console.log(this.borrowingNum("2651", 3))
+// console.log(this.generateOption(12))
+// console.log(this.borrowingNum("259", 1))
 // console.log(this.minuendGenerator(4))
 // console.log(this.nonBorrowingnum("1234",4))

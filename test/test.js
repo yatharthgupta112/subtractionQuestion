@@ -9,10 +9,10 @@ describe(' Subtraction', () => {
     describe('minuend has greater digit', () => {
         let req = {
             body :   {
-                noOfQuestions: 50,
+                noOfQuestions: 1000,
                 borrowing: false,
                 minuend: 6,
-                subtrahend: 5
+                subtrahend: 1
             }
         }
         const result =Questionaire(req);
@@ -75,7 +75,7 @@ describe(' Subtraction', () => {
     describe('minuend and subtrahend has equal digit', () => {
         let req = {
             body :   {
-                noOfQuestions: 50,
+                noOfQuestions: 1000,
                 borrowing: false,
                 minuend: 6,
                 subtrahend: 6
@@ -146,10 +146,10 @@ describe(' Subtraction', () => {
     describe('minuend has greater digit', () => {
         let req = {
             body :   {
-                noOfQuestions: 50,
+                noOfQuestions: 1000,
                 borrowing: true,
-                minuend: 6,
-                subtrahend: 5
+                minuend: 3,
+                subtrahend: 1
             }
         }
         const result =Questionaire(req);
@@ -211,7 +211,7 @@ describe(' Subtraction', () => {
     describe('minuend and subtrahend has equal digit', () => {
         let req = {
             body :   {
-                noOfQuestions: 50,
+                noOfQuestions: 1000,
                 borrowing: true,
                 minuend: 6,
                 subtrahend: 6
@@ -281,9 +281,11 @@ describe(' Subtraction', () => {
 function checkBorrowing  (minuend, subtrahend)
 {
    
-    for (let i = subtrahend.length ; i>0;i--)
+    // console.log("from check")
+    for (let i = subtrahend.length-1; i>=0;i--)
     {
-        if(parseInt(subtrahend.charAt(i))> parseInt(minuend.charAt(i)))
+        let relativeIndex = minuend.length - subtrahend.length + i
+        if(parseInt(subtrahend.charAt(i))> parseInt(minuend.charAt(relativeIndex)))
         return true;
     }
     return false;

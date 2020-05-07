@@ -1,5 +1,5 @@
 const {randomNumber,numGeneratorWithDigit} = require('../util/randomGenerator');
-const { nonBorrowingnum, borrowingNum,generateOption} = require('../util/numberManupilator');
+const { nonBorrowingnum, borrowingNum,generateOption,checkMinuend} = require('../util/numberManupilator');
 
 
 
@@ -28,10 +28,12 @@ function Questionaire(req){
 function borrowingQuestion(req){
     let minuendLength = req.body.minuend;
     let subtrahendLength = req.body.subtrahend;
-    // let minuendLength = 4;
-    // let subtrahendLength = 3;
-    let minuend = numGeneratorWithDigit(minuendLength);
-
+    // let minuendLength = 3;
+    // let subtrahendLength = 1;
+    let minuend= numGeneratorWithDigit(minuendLength);
+    // let minuend=258;
+    while(!checkMinuend(minuend.toString(), subtrahendLength))
+    { minuend = numGeneratorWithDigit(minuendLength);}
     let subtrahend = borrowingNum(minuend.toString(), subtrahendLength);
     let answer = parseInt(minuend)- parseInt(subtrahend);
     let option = generateOption(answer);
@@ -65,3 +67,4 @@ function nonBorrowingQuestion(req){
 module.exports = {Questionaire}
 
 // console.log(Questionaire({}));
+// console.log(borrowingQuestion());
